@@ -8,7 +8,9 @@
 
 #import <Foundation/Foundation.h>
 #import "Kitchen.h"
+#import "DeliveryService.h"
 
 @interface CheeryManager : NSObject<KitchenDelegate>
+@property (nonatomic) DeliveryService *deliveryService;
 
 @end

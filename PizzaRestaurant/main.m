@@ -17,11 +17,16 @@ int main(int argc, const char * argv[]){
     @autoreleasepool {
         
         
-        NSLog(@"Please pick your pizza size and toppings:");
+        NSLog(@"Please enter your pizza size and toppings:");
         
         Kitchen *restaurantKitchen = [Kitchen new];
         Manager *strictManager = [Manager new];
         CheeryManager *cheeryManager = [CheeryManager new];
+        DeliveryService *deliveryService = [DeliveryService new];
+        DeliveryCar *deliveryCar = [DeliveryCar new];
+        strictManager.deliveryService = deliveryService;
+        cheeryManager.deliveryService = deliveryService;
+        deliveryService.deliveryCar = deliveryCar;
         PizzaSize pizzaSize;
         
         while (TRUE) {  // Loop forever
@@ -54,10 +59,10 @@ int main(int argc, const char * argv[]){
             restaurantKitchen.delegate = strictManager; //set delegate to manager
             [restaurantKitchen makePizzaWithSize:pizzaSize toppings:toppings];
             
-            restaurantKitchen.delegate = cheeryManager; //set delegate to cheery mgr
-            [restaurantKitchen makePizzaWithSize:pizzaSize toppings:toppings];
+//            restaurantKitchen.delegate = cheeryManager; //set delegate to cheery mgr
+//            [restaurantKitchen makePizzaWithSize:pizzaSize toppings:toppings];
             
-            
+            [deliveryService pizzasDeliveredList];
         }
 
     }

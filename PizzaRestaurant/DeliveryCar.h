@@ -1,5 +1,5 @@
 //
-//  Manager.h
+//  DeliveryCar.h
 //  PizzaRestaurant
 //
 //  Created by Endeavour2 on 7/1/17.
@@ -7,10 +7,10 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "Kitchen.h"
-#import "DeliveryService.h"
+#import "Pizza.h"
 
-@interface Manager : NSObject<KitchenDelegate>
-@property (nonatomic) DeliveryService *deliveryService;
+@interface DeliveryCar : NSObject
+
+-(void)deliverPizza:(Pizza *)pizza;
 
 @end
