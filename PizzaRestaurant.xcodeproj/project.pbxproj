@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		301D48081F058EB700F14082 /* Pizza.m in Sources */ = {isa = PBXBuildFile; fileRef = 301D48071F058EB700F14082 /* Pizza.m */; };
+		306281F01F07485E00F0C958 /* InputHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 306281EF1F07485E00F0C958 /* InputHandler.m */; };
+		306281F31F075C9A00F0C958 /* Manager.m in Sources */ = {isa = PBXBuildFile; fileRef = 306281F21F075C9A00F0C958 /* Manager.m */; };
+		306281F61F07608E00F0C958 /* CheeryManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 306281F51F07608E00F0C958 /* CheeryManager.m */; };
 		6001EC81197B4EC300F97011 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6001EC80197B4EC300F97011 /* Foundation.framework */; };
 		6001EC84197B4EC300F97011 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 6001EC83197B4EC300F97011 /* main.m */; };
 		6001EC90197B502F00F97011 /* Kitchen.m in Sources */ = {isa = PBXBuildFile; fileRef = 6001EC8F197B502F00F97011 /* Kitchen.m */; };
@@ -25,6 +29,14 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		301D48061F058EB700F14082 /* Pizza.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Pizza.h; sourceTree = "<group>"; };
+		301D48071F058EB700F14082 /* Pizza.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Pizza.m; sourceTree = "<group>"; };
+		306281EE1F07485E00F0C958 /* InputHandler.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = InputHandler.h; sourceTree = "<group>"; };
+		306281EF1F07485E00F0C958 /* InputHandler.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = InputHandler.m; sourceTree = "<group>"; };
+		306281F11F075C9A00F0C958 /* Manager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Manager.h; sourceTree = "<group>"; };
+		306281F21F075C9A00F0C958 /* Manager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Manager.m; sourceTree = "<group>"; };
+		306281F41F07608E00F0C958 /* CheeryManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CheeryManager.h; sourceTree = "<group>"; };
+		306281F51F07608E00F0C958 /* CheeryManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CheeryManager.m; sourceTree = "<group>"; };
 		6001EC7D197B4EC300F97011 /* PizzaRestaurant */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = PizzaRestaurant; sourceTree = BUILT_PRODUCTS_DIR; };
 		6001EC80197B4EC300F97011 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		6001EC83197B4EC300F97011 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -76,6 +88,14 @@
 				6001EC83197B4EC300F97011 /* main.m */,
 				6001EC8E197B502F00F97011 /* Kitchen.h */,
 				6001EC8F197B502F00F97011 /* Kitchen.m */,
+				301D48061F058EB700F14082 /* Pizza.h */,
+				301D48071F058EB700F14082 /* Pizza.m */,
+				306281EE1F07485E00F0C958 /* InputHandler.h */,
+				306281EF1F07485E00F0C958 /* InputHandler.m */,
+				306281F11F075C9A00F0C958 /* Manager.h */,
+				306281F21F075C9A00F0C958 /* Manager.m */,
+				306281F41F07608E00F0C958 /* CheeryManager.h */,
+				306281F51F07608E00F0C958 /* CheeryManager.m */,
 				6001EC85197B4EC300F97011 /* Supporting Files */,
 			);
 			path = PizzaRestaurant;
@@ -140,8 +160,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				301D48081F058EB700F14082 /* Pizza.m in Sources */,
 				6001EC90197B502F00F97011 /* Kitchen.m in Sources */,
 				6001EC84197B4EC300F97011 /* main.m in Sources */,
+				306281F61F07608E00F0C958 /* CheeryManager.m in Sources */,
+				306281F31F075C9A00F0C958 /* Manager.m in Sources */,
+				306281F01F07485E00F0C958 /* InputHandler.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -255,6 +279,7 @@
 				6001EC8D197B4EC300F97011 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
