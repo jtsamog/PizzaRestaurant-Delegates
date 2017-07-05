@@ -15,8 +15,6 @@
 
 int main(int argc, const char * argv[]){
     @autoreleasepool {
-        
-        
         NSLog(@"Please enter your pizza size and toppings:");
         
         Kitchen *restaurantKitchen = [Kitchen new];
@@ -32,8 +30,6 @@ int main(int argc, const char * argv[]){
         while (TRUE) {  // Loop forever
             
             NSString *inputString = [InputHandler getUserInput];
-            
-            NSLog(@"Input was %@", inputString);
             
             // Take the first word of the command as the size, and the rest as the toppings
             NSArray *commandWords = [inputString componentsSeparatedByString:@" "];
@@ -54,15 +50,31 @@ int main(int argc, const char * argv[]){
             continue;
             }
             
+            NSLog(@"Choose a manager to process your order: 1 - StrictManager, 2 - CheeryManager");
+            NSString *parsedString = [InputHandler getUserInput];
+            int choice = [parsedString intValue];
+            
+            NSLog(@"You have ordered: Pizza size/topping: %@  from Manager: %@", inputString, parsedString);
             // And then send some message to the kitchen...
+            id<KitchenDelegate>delegateForSwitch;
+//            Kitchen *restaurantKitchen = [Kitchen new];
             
-            restaurantKitchen.delegate = strictManager; //set delegate to manager
+            switch (choice) {
+                case 1: delegateForSwitch =  strictManager; break;
+                case 2: delegateForSwitch = cheeryManager; break;
+                default:  break;
+            }
+            
+            restaurantKitchen.delegate = delegateForSwitch; //set delegate to manager
             [restaurantKitchen makePizzaWithSize:pizzaSize toppings:toppings];
-            
-//            restaurantKitchen.delegate = cheeryManager; //set delegate to cheery mgr
-//            [restaurantKitchen makePizzaWithSize:pizzaSize toppings:toppings];
+//
+//            [restaurantKitchen.delegate kitchen:restaurantKitchen shouldMakePizzaOfSize:pizzaSize andToppings:toppings];
             
             [deliveryService pizzasDeliveredList];
+            
+            NSLog(@" line: %ld count of pizza log %lu", __LINE__, deliveryService.pizzasProducedLogs.count);
+            
+            
         }
 
     }
