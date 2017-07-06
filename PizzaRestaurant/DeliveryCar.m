@@ -7,6 +7,7 @@
 //
 
 #import "DeliveryCar.h"
+#import "Pizza.h"
 
 @implementation DeliveryCar
 

@@ -13,23 +13,31 @@
 
 
 - (Pizza *)makePizzaWithSize:(PizzaSize)size toppings:(NSArray *)toppings{
-    if (self.delegate) {
-        [self.delegate kitchen:self shouldMakePizzaOfSize:size andToppings:toppings];
-    
-    
-            if ([self.delegate kitchenShouldUpgradeOrder:self]) {
-            size = Large;
-            }
+   
+    if (!self.delegate) {
+        return nil;
     }
+    BOOL result =[self.delegate kitchen:self shouldMakePizzaOfSize:size andToppings:toppings];
+    
+    if (result == NO) {
+        NSLog(@"Sorry, we do not make pizza with anchovies");
+        return nil;
+    }
+    
+    if ([self.delegate kitchenShouldUpgradeOrder:self]) {
+        size = Large;
+    }
+    
     Pizza *pizza = [[Pizza alloc] initWithSize:size andToppings:toppings];
     
     if ([self.delegate respondsToSelector:@selector(kitchenDidMakePizza:)]) {
         [self.delegate kitchenDidMakePizza:pizza];
     }
+     
     return pizza;
-    
-    
+     
 }
+
 
 //- (Pizza *)makePizzaWithSize:(PizzaSize)size toppings:(NSArray *)toppings{
 //    if (self.delegate) {
@@ -41,13 +49,13 @@
 //        }
 //    }
 //    Pizza *pizza = [[Pizza alloc] initWithSize:size andToppings:toppings];
-//    
+//
 //    if ([self.delegate respondsToSelector:@selector(kitchenDidMakePizza:)]) {
 //        [self.delegate kitchenDidMakePizza:pizza];
 //    }
 //    return pizza;
-//    
-//    
+//
+//
 //}
 
 @end

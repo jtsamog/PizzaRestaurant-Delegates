@@ -7,14 +7,14 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "Pizza.h"
-#import "DeliveryCar.h"
+@class Pizza;
+@class DeliveryCar;
 
 @interface DeliveryService : NSObject
 @property (nonatomic) DeliveryCar *deliveryCar;
-@property (nonatomic) NSMutableArray *pizzasProducedLogs;
+@property (nonatomic) NSMutableArray<Pizza*>*pizzasProducedLogs;
 
 -(void)deliverPizza:(Pizza *)pizza;
--(NSArray *)pizzasDeliveredList;
+//-(NSArray *)pizzasDeliveredList;
 
 @end

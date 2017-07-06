@@ -18,4 +18,27 @@
     }
     return self;
 }
+
+- (NSString *)pizzaSizeToString {
+    NSString *result;
+    switch (self.size) {
+        case Small:
+            result = @"Small";
+            break;
+        case Medium:
+            result = @"Medium";
+            break;
+        case Large:
+            result = @"Large";
+            break;
+        default:
+            break;
+    }
+    return result;
+}
+
+- (NSString *)description {
+    NSString *result = [NSString stringWithFormat:@"Pizza of size: %@ with toppings: %@", [self pizzaSizeToString], self.toppings];
+    return result;
+}
 @end

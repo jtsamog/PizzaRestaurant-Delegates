@@ -7,13 +7,24 @@
 //
 
 #import "DeliveryService.h"
+#import "Pizza.h"
+#import "DeliveryCar.h"
 
 @implementation DeliveryService
+
+- (instancetype)init
+{
+    self = [super init];
+    if (self) {
+        _pizzasProducedLogs = [NSMutableArray new];
+    }
+    return self;
+}
 -(void)deliverPizza:(Pizza *)pizza{
     [self.deliveryCar deliverPizza:pizza];
     [self.pizzasProducedLogs addObject:pizza];
 }
--(NSArray *)pizzasDeliveredList{
-    return self.pizzasProducedLogs;
-}
+//-(NSArray *)pizzasDeliveredList{
+//    return _pizzasProducedLogs;
+//}
 @end

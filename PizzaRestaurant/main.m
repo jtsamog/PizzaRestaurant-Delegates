@@ -9,9 +9,9 @@
 #import <Foundation/Foundation.h>
 #import "InputHandler.h"
 #import "Kitchen.h"
-#import "Pizza.h"
 #import "Manager.h"
 #import "CheeryManager.h"
+#import "DeliveryCar.h"
 
 int main(int argc, const char * argv[]){
     @autoreleasepool {
@@ -56,23 +56,15 @@ int main(int argc, const char * argv[]){
             
             NSLog(@"You have ordered: Pizza size/topping: %@  from Manager: %@", inputString, parsedString);
             // And then send some message to the kitchen...
-            id<KitchenDelegate>delegateForSwitch;
-//            Kitchen *restaurantKitchen = [Kitchen new];
             
-            switch (choice) {
-                case 1: delegateForSwitch =  strictManager; break;
-                case 2: delegateForSwitch = cheeryManager; break;
-                default:  break;
-            }
-            
-            restaurantKitchen.delegate = delegateForSwitch; //set delegate to manager
+            restaurantKitchen.delegate = choice == 1 ? strictManager : cheeryManager;
+
             [restaurantKitchen makePizzaWithSize:pizzaSize toppings:toppings];
-//
-//            [restaurantKitchen.delegate kitchen:restaurantKitchen shouldMakePizzaOfSize:pizzaSize andToppings:toppings];
+
             
-            [deliveryService pizzasDeliveredList];
+
             
-            NSLog(@" line: %ld count of pizza log %lu", __LINE__, deliveryService.pizzasProducedLogs.count);
+            NSLog(@" line: %d count of pizza log %@", __LINE__, deliveryService.pizzasProducedLogs);
             
             
         }

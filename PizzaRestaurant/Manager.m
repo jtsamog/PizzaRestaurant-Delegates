@@ -11,12 +11,7 @@
 @implementation Manager
 
 -(BOOL)kitchen:(Kitchen *)kitchen shouldMakePizzaOfSize:(PizzaSize)size andToppings:(NSArray *)toppings{
-    if ([toppings containsObject:@"anchovies"]) {
-        NSLog(@"Sorry, we do not make pizza with anchovies");
-        return NO;
-    }else{
-        return YES;
-    }
+    return ![toppings containsObject:@"anchovies"];
 }
 
 -(BOOL)kitchenShouldUpgradeOrder:(Kitchen *)kitchen{
@@ -24,7 +19,8 @@
 }
 
 -(void)kitchenDidMakePizza:(Pizza *)pizza{
-    NSLog(@"Kitchen did make Pizza size %ld with %@", pizza.size, pizza.toppings);
+    NSLog(@"Kitchen did make Pizza size %@ with %@", [pizza pizzaSizeToString], pizza.toppings);
+
     [self.deliveryService deliverPizza:pizza];
 }
 @end
